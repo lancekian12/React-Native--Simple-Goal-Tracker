@@ -5,9 +5,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View>
-        <Text>My name!</Text>
+        <Text>My name is</Text>
       </View>
-      <Text>Hello Lance Kian Flores!!!</Text>
+      <Text
+        style={{ margin: 16, borderWidth: 1, borderColor: "red", padding: 16 }}
+      >
+        Lance Kian Flores
+      </Text>
       <Button title="Tap me" />
     </View>
   );

@@ -1,11 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <View>
+        <Text>My name!</Text>
+      </View>
       <Text>Hello Lance Kian Flores!!!</Text>
-      <StatusBar style="auto" />
+      <Button title="Tap me" />
     </View>
   );
 }

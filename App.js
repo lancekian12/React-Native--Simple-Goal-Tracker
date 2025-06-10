@@ -13,8 +13,8 @@ export default function App() {
     //       <Button title="Tap me" />
     //     </View>
     <View style={styles.appContainer}>
-      <View>
-        <TextInput placeholder="Your course goal" />
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.textInput} placeholder="Your course goal" />
         <Button title="Add goal" />
       </View>
       <View>
@@ -34,16 +34,27 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  dummyText: {
-    margin: 16,
-    padding: 16,
-    borderWidth: 2,
-    borderColor: "blue",
+  inputContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
-  bigBlue: {
-    color: "blue",
+  textInput: {
+    borderWidth: 1,
+    borderColor: "#cccccc",
+    width: "80%",
+    marginRight: 8,
+    padding: 8,
   },
-  red: {
-    color: "red",
-  },
+  // dummyText: {
+  //   margin: 16,
+  //   padding: 16,
+  //   borderWidth: 2,
+  //   borderColor: "blue",
+  // },
+  // bigBlue: {
+  //   color: "blue",
+  // },
+  // red: {
+  //   color: "red",
+  // },
 });

@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  ScrollView,
+} from "react-native";
 
 export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState("");
@@ -77,17 +84,19 @@ export default function App() {
         <Button title="Add goal" onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        {courseGoals.length > 1 ? (
-          courseGoals.map((goal) => {
-            return (
-              <View style={styles.goalItem} key={goal}>
-                <Text style={styles.goalText}>{goal}</Text>
-              </View>
-            );
-          })
-        ) : (
-          <Text>List a goals....</Text>
-        )}
+        <ScrollView>
+          {courseGoals.length > 1 ? (
+            courseGoals.map((goal) => {
+              return (
+                <View style={styles.goalItem} key={goal}>
+                  <Text style={styles.goalText}>{goal}</Text>
+                </View>
+              );
+            })
+          ) : (
+            <Text>List a goals....</Text>
+          )}
+        </ScrollView>
       </View>
     </View>
   );

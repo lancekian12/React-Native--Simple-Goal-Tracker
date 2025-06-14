@@ -12,66 +12,20 @@ export default function App() {
       return [...e, { text: enteredGoalText, id: Math.random().toString() }];
     });
   }
+
+  function deleteGoalHandler() {
+    console.log("delete");
+  }
   return (
-    // <View style={styles.container}>
-    //   <View>
-    //     <Text style={styles.dummyText}>My name is</Text>
-    //   </View>
-    //   <Text style={styles.dummyText}>Lance Kian Flores</Text>
-    //   <Text style={[styles.bigBlue, styles.red]}>bigBlue, then red</Text>
-    //   <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
-    //   <Button title="Tap me" />
-    // </View>
-    // <View
-    //   style={{
-    //     padding: 50,
-    //     flexDirection: "row",
-    //     width: "80%",
-    //     height: 300,
-    //     justifyContent: "space-around",
-    //     alignItems: "center",
-    //   }}
-    // >
-    //   <View
-    //     style={{
-    //       backgroundColor: "red",
-
-    //       flex: 1,
-    //       justifyContent: "center",
-    //       alignItems: "center",
-    //     }}
-    //   >
-    //     <Text>1</Text>
-    //   </View>
-
-    //   <View
-    //     style={{
-    //       backgroundColor: "blue",
-    //       flex: 2,
-    //       justifyContent: "center",
-    //       alignItems: "center",
-    //     }}
-    //   >
-    //     <Text>2</Text>
-    //   </View>
-    //   <View
-    //     style={{
-    //       backgroundColor: "green",
-
-    //       justifyContent: "center",
-    //       alignItems: "center",
-    //     }}
-    //   >
-    //     <Text>3</Text>
-    //   </View>
-    // </View>
     <View style={styles.appContainer}>
       <GoalInput onAddGoal={addGoalHandler} />
       <View style={styles.goalsContainer}>
         <FlatList
           data={courseGoals}
           renderItem={(itemData) => {
-            return <GoalItem text={itemData.item.text} />;
+            return (
+              <GoalItem text={itemData.item.text} delete={deleteGoalHandler} />
+            );
           }}
           keyExtractor={(item, index) => {
             return item.id;
@@ -93,17 +47,4 @@ const styles = StyleSheet.create({
   goalsContainer: {
     flex: 5,
   },
-
-  // dummyText: {
-  //   margin: 16,
-  //   padding: 16,
-  //   borderWidth: 2,
-  //   borderColor: "blue",
-  // },
-  // bigBlue: {
-  //   color: "blue",
-  // },
-  // red: {
-  //   color: "red",
-  // },
 });

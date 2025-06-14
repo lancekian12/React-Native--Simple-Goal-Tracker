@@ -7,7 +7,7 @@ import GoalInput from "./components/GoalInput";
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
 
-  function addGoalHandler(e) {
+  function addGoalHandler(enteredGoalText) {
     setCourseGoals((e) => {
       return [...e, { text: enteredGoalText, id: Math.random().toString() }];
     });
@@ -66,7 +66,7 @@ export default function App() {
     //   </View>
     // </View>
     <View style={styles.appContainer}>
-      <GoalInput addGoalHandler={addGoalHandler} />
+      <GoalInput onAddGoal={addGoalHandler} />
       <View style={styles.goalsContainer}>
         <FlatList
           data={courseGoals}

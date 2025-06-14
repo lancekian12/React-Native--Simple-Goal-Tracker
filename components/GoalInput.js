@@ -19,12 +19,12 @@ const GoalInput = (props) => {
         style={styles.textInput}
         placeholder="Your course goal"
         onChangeText={goalInputHandler}
+        value={enteredGoalText}
       />
       <Button title="Add goal" onPress={addGoalHandler} />
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,

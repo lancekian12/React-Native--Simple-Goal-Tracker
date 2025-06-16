@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Button } from "react-native";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
 
 export default function App() {
+  const [modalVisible, setModalVisible] = useState(false);
   const [courseGoals, setCourseGoals] = useState([]);
+
+  function startAddGoalHandler() {
+    setModalVisible(true);
+  }
 
   function addGoalHandler(enteredGoalText) {
     setCourseGoals((e) => {
@@ -21,7 +26,14 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <Button
+        title="Add a new Goal"
+        color="#5e0acc"
+        onPress={startAddGoalHandler}
+      />
+      {modalVisible && (
+        <GoalInput visible={modalVisible} onAddGoal={addGoalHandler} />
+      )}
       <View style={styles.goalsContainer}>
         <FlatList
           data={courseGoals}

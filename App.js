@@ -12,10 +12,15 @@ export default function App() {
     setModalVisible(true);
   }
 
+  function endAddGoalHandler() {
+    setModalVisible(false);
+  }
+
   function addGoalHandler(enteredGoalText) {
     setCourseGoals((e) => {
       return [...e, { text: enteredGoalText, id: Math.random().toString() }];
     });
+    endAddGoalHandler();
   }
 
   function deleteGoalHandler(id) {
@@ -32,7 +37,11 @@ export default function App() {
         onPress={startAddGoalHandler}
       />
       {modalVisible && (
-        <GoalInput visible={modalVisible} onAddGoal={addGoalHandler} />
+        <GoalInput
+          visible={modalVisible}
+          onAddGoal={addGoalHandler}
+          onCancel={endAddGoalHandler}
+        />
       )}
       <View style={styles.goalsContainer}>
         <FlatList

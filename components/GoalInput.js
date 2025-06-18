@@ -19,6 +19,7 @@ const GoalInput = (props) => {
     props.onAddGoal(enteredGoalText);
     setEnteredGoalText("");
   }
+  console.log(enteredGoalText);
 
   return (
     <Modal visible={props.visible} animationType="slide">
@@ -26,6 +27,7 @@ const GoalInput = (props) => {
         <Image
           style={styles.image}
           source={require("../assets/images/goal.png")}
+          // source={require("/some/path/to/image.png")}
         />
         <TextInput
           style={styles.textInput}
